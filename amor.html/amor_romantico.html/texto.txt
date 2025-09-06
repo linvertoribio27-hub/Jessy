@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Jessy 💖</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(120deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
+        background-size: 400% 400%;
+        animation: gradientShift 15s ease infinite;
+    }
+
+    @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 70px;
+        color: #fff;
+        text-shadow: 0 0 10px #fff, 0 0 20px #ff69b4, 0 0 30px #ff1493, 0 0 40px #ff69b4;
+        animation: glow 2s infinite alternate;
+        z-index: 10;
+    }
+
+    @keyframes glow {
+        0% { text-shadow: 0 0 5px #fff, 0 0 10px #ff69b4, 0 0 15px #ff1493, 0 0 20px #ff69b4; }
+        100% { text-shadow: 0 0 20px #fff, 0 0 30px #ff69b4, 0 0 40px #ff1493, 0 0 50px #ff69b4; }
+    }
+
+    .falling-text {
+        position: absolute;
+        font-weight: bold;
+        animation: fall linear infinite;
+        opacity: 0.8;
+    }
+
+    @keyframes fall {
+        0% { transform: translateY(-50px) rotate(0deg); }
+        100% { transform: translateY(110vh) rotate(360deg); }
+    }
+
+    button {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 20px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 10px;
+        background-color: white;
+        color: pink;
+        cursor: pointer;
+        box-shadow: 0 0 10px #ff69b4;
+    }
+</style>
+</head>
+<body>
+
+<h1>Te Amo 💖</h1>
+
+<audio id="musica" src="MUSICA.mp3"></audio>
+<button onclick="document.getElementById('musica').play()">Reproducir música</button>
+
+<script>
+const mensajes = ["Te Amo", "Jessy"];
+const colores = ["#ff69b4", "#ff1493", "#ffb6c1", "#fff0f5", "#ffc0cb"];
+const cantidad = 50; // más textos para lluvia romántica
+
+for (let i = 0; i < cantidad; i++) {
+    const span = document.createElement("span");
+    span.className = "falling-text";
+    span.innerText = mensajes[Math.floor(Math.random() * mensajes.length)];
+    span.style.left = Math.random() * 100 + "vw";
+    span.style.fontSize = (Math.random() * 25 + 15) + "px";
+    span.style.color = colores[Math.floor(Math.random() * colores.length)];
+    span.style.animationDuration = (Math.random() * 5 + 5) + "s";
+    span.style.opacity = Math.random() * 0.7 + 0.3;
+    document.body.appendChild(span);
+}
+</script>
+
+</body>
+</html>
